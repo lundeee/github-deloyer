@@ -23,13 +23,9 @@ async function GetLogs() {
 }
 
 async function Deploy(body) {
-  // console.log("---------------- -------------------------------------------------")
-  // console.log(JSON.stringify(body));
-  // console.log("---------- -------------------------------------------------------")
   console.log(`Updating ${body.repository.name} to commit: ${body.head_commit.message}`)
   const proj = config.projects.find(x => { return x.name === body.repository.name })
   if (proj) {
-    // console.log(`Updating ${body.repository.name} to commit: ${body.commits.message}`)
     const child = spawn("./scripts/" + proj.script);
     child.on('exit', function (code, signal) {
       if(code === 0) {
