@@ -18,9 +18,9 @@ async function GetLogs() {
 }
 
 async function Deploy(body) {
-  console.log("-----------------------------------------------------------------")
+  console.log("----------------------------------------------------------------")
   console.log(body);
-  console.log("-----------------------------------------------------------------")
+  console.log("----------------------------------------------------------------")
   // console.log(config);
   // console.log("ASFXXXc");
   const child = spawn('scripts/update-self.sh');
