@@ -23,14 +23,15 @@ async function Deploy(body) {
   console.log("-----------------------------------------------------------------")
   console.log(`Updating ${body.repository.name} to commit: ${body.head_commit.message}`)
   const proj = config.projects.find(x => {x.name === body.repository.name})
-  console.log(projects)
-  if (proj) {
-    // console.log(`Updating ${body.repository.name} to commit: ${body.commits.message}`)
-    const child = spawn("./scripts/" + proj.script);
-    child.on('exit', function (code, signal) {
-        console.log(`Updating finished with code ${code} and signal ${signal}`)
-    });
-  }
+  console.log(proj, config.projects)
+  spawn("./scripts/update_self.sh");
+  // if (proj) {
+  //   // console.log(`Updating ${body.repository.name} to commit: ${body.commits.message}`)
+  //   const child = spawn("./scripts/" + proj.script);
+  //   child.on('exit', function (code, signal) {
+  //       console.log(`Updating finished with code ${code} and signal ${signal}`)
+  //   });
+  // }
 }
 
 module.exports.GetLogs = GetLogs;
