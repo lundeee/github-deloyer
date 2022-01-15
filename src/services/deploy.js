@@ -20,7 +20,7 @@ async function GetLogs() {
 async function Deploy(body) {
   console.log("-----------------------------------------------------------------")
   console.log(JSON.stringify(body));
-  console.log("----------------------------------------------------------------")
+  console.log("---------------------------------------------------------------")
   const proj = config.projects.find(x => {x.name === body.repository.name})
   if (proj) {
     const child = spawn("./scripts/" + proj.script);
