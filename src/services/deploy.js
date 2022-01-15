@@ -19,7 +19,7 @@ async function GetLogs() {
 
 async function Deploy(body) {
   console.log("----------------------------------------------------------------")
-  console.log(body);
+  console.log(JSON.stringify(body));
   console.log("----------------------------------------------------------------")
   // console.log(config);
   // console.log("ASFXXXc");
