@@ -1,4 +1,4 @@
-const config = require('./config.js')
+const config = require('../../config.js')
 
 async function GetLogs() {
   const { spawn } = require('child_process');
