@@ -5,8 +5,13 @@ async function GetLogs() {
   const { spawn } = require('child_process');
   const child = spawn('../../scripts/test.sh');
   child.on('exit', function (code, signal) {
-    console.log('child process exited with ' +
-                `code ${code} and signal ${signal}`);
+    if(code === 0) {
+      console.log("success")
+    } else {
+      console.log('child process exited with ' +
+      `code ${code} and signal ${signal}`);
+    }
+
   });
   child.stdout.on('data', (data) => {
     console.log(`child stdout:\n${data}`);
@@ -27,7 +32,12 @@ async function Deploy(body) {
     // console.log(`Updating ${body.repository.name} to commit: ${body.commits.message}`)
     const child = spawn("./scripts/" + proj.script);
     child.on('exit', function (code, signal) {
-        console.log(`Updating finished with code ${code} and signal ${signal}`)
+      if(code === 0) {
+        console.log(`Success! Updating finished with code ${code} and signal ${signal}`)
+      } else {
+        console.log('child process exited with ' +
+        `code ${code} and signal ${signal}`);
+      }
         spawn(`pm2 restart ${body.repository.name}`);
     });
   }
