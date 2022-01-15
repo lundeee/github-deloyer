@@ -23,26 +23,15 @@ async function Deploy(body) {
   // console.log(" -----------------------------------------------------------------")
   console.log(`Updating ${body.repository.name} to commit: ${body.head_commit.message}`)
   const proj = config.projects.find(x => { return x.name === body.repository.name })
-  // const child = spawn("../../scripts/update-self.sh");
-  // child.on('exit', function (code, signal) {
-  //   console.log('child process exited with ' +
-  //               `code ${code} and signal ${signal}`);
-  // });
-  // child.stdout.on('data', (data) => {
-  //   console.log(`child stdout:\n${data}`);
-  // });
-
-  // child.stderr.on('data', (data) => {
-  //   console.error(`child stderr:\n${data}`);
-  // });
   if (proj) {
     // console.log(`Updating ${body.repository.name} to commit: ${body.commits.message}`)
     const child = spawn("./scripts/" + proj.script);
     child.on('exit', function (code, signal) {
         console.log(`Updating finished with code ${code} and signal ${signal}`)
+        spawn(`pm2 restart ${body.repository.name}`);
     });
   }
 }
 
 module.exports.GetLogs = GetLogs;
-module.exports.Deploy = Deploy
+module.exports.Deploy = Deploy;
