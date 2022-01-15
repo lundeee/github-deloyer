@@ -18,7 +18,7 @@ async function GetLogs() {
 }
 
 async function Deploy(body) {
-  console.log("----------------------------------------------------------------")
+  console.log("-----------------------------------------------------------------")
   console.log(JSON.stringify(body));
   console.log("----------------------------------------------------------------")
   // console.log(config);
