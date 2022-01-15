@@ -2,7 +2,7 @@ module.exports = {
   projects: [
     {
       name: "github-deployer",
-      script: "./scripts/update_self.sh"
+      script: "update_self.sh"
     }
   ]
 }
