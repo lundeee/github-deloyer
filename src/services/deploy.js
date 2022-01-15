@@ -18,23 +18,16 @@ async function GetLogs() {
 }
 
 async function Deploy(body) {
-  console.log("-----------------------------------------------------------------")
-  console.log(JSON.stringify(body));
-  console.log("---------------------------------------------------------------")
+  // console.log("-----------------------------------------------------------------")
+  // console.log(JSON.stringify(body));
+  // console.log("---------------------------------------------------------------")
   const proj = config.projects.find(x => {x.name === body.repository.name})
   if (proj) {
+    console.log(`Updating ${body.repository.name} to commit: ${body.commits.message}`)
     const child = spawn("./scripts/" + proj.script);
     child.on('exit', function (code, signal) {
-        console.log('child process exited with ' +
-                    `code ${code} and signal ${signal}`);
+        console.log(`Updating finished with code ${code} and signal ${signal}`)
     });
-    // child.stdout.on('data', (data) => {
-    //   console.log(`child stdout:\n${data}`);
-    // });
-
-    // child.stderr.on('data', (data) => {
-    //   console.error(`child stderr:\n${data}`);
-    // });
   }
 }
 
