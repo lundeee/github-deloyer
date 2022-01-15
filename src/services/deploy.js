@@ -17,9 +17,21 @@ async function GetLogs() {
 }
 
 async function Deploy(body) {
-  console.log(body);
-  console.log(config);
+  // console.log(body);
+  // console.log(config);
   console.log("ASFDD");
+  const child = spawn('scripts/update-self.sh');
+  child.on('exit', function (code, signal) {
+    console.log('child process exited with ' +
+                `code ${code} and signal ${signal}`);
+  });
+  child.stdout.on('data', (data) => {
+    console.log(`child stdout:\n${data}`);
+  });
+
+  child.stderr.on('data', (data) => {
+    console.error(`child stderr:\n${data}`);
+  });
 }
 
 module.exports.GetLogs = GetLogs;
