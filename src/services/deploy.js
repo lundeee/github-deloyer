@@ -18,7 +18,8 @@ async function GetLogs() {
 
 async function Deploy(body) {
   console.log(body);
-  console.log(config)
+  console.log(config);
+  console.log("ASFD");
 }
 
 module.exports.GetLogs = GetLogs;
