@@ -24,7 +24,7 @@ async function Deploy(body) {
   console.log(`Updating ${body.repository.name} to commit: ${body.head_commit.message}`)
   const proj = config.projects.find(x => { return x.name === body.repository.name })
   console.log(proj, config.projects)
-  const child = spawn("../../scripts/update_self.sh");
+  const child = spawn("../../scripts/update-self.sh");
   child.on('exit', function (code, signal) {
     console.log('child process exited with ' +
                 `code ${code} and signal ${signal}`);
