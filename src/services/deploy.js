@@ -1,4 +1,5 @@
 const config = require('../../config.js')
+const { spawn } = require('child_process')
 
 async function GetLogs() {
   const { spawn } = require('child_process');
@@ -18,7 +19,7 @@ async function GetLogs() {
 
 async function Deploy(body) {
   // console.log(body);
-  // console.log(config);
+  console.log(config);
   console.log("ASFDDD");
   const child = spawn('scripts/update-self.sh');
   child.on('exit', function (code, signal) {
