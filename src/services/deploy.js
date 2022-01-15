@@ -1,3 +1,5 @@
+const config = require('./config.js')
+
 async function GetLogs() {
   const { spawn } = require('child_process');
   const child = spawn('scripts/test.sh');
@@ -15,7 +17,8 @@ async function GetLogs() {
 }
 
 async function Deploy(body) {
-  console.log(body)
+  console.log(body);
+  console.log(config)
 }
 
 module.exports.GetLogs = GetLogs;
