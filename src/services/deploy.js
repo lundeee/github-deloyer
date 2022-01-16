@@ -7,10 +7,13 @@ async function GetLogs() {
 }
 
 async function Deploy(body) {
+  console.log("_____________________________")
+  console.log(JSON.stringify(body))
+  console.log("_____________________________")
   console.log(`Updating ${body.repository.name} to commit: ${body.head_commit.message}`)
   const proj = config.projects.find(x => { return x.name === body.repository.name })
   if (proj) {
-    const script =  proj.script
+    let script =  proj.script
     if (!script.startsWith("/") && !script.startsWith(".")) script = "./scripts/" + script
     if (fs.existsSync(script)) {
       const child = spawn(script);
