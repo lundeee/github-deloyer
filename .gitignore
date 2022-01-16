@@ -127,3 +127,6 @@ dist
 .pnp.*
 
 .DS_STORE
+config.js
+srcipts/*
+!srcipts/update-self.sh
