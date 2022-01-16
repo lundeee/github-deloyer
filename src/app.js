@@ -18,6 +18,6 @@ app.use(cors({
 // app.use(morgan('combined'));
 app.use(morgan('[:date[iso]] :method :url :status :response-time :user-agent :remote-addr '));
 routes(app);
-
-app.listen(process.env.PORT, () => console.log(`App listening on port ${process.env.PORT}!`));
+const port = process.env.PORT === undefined ? 7002: process.env.PORT;
+app.listen(port, () => console.log(`App listening on port ${port}!`));
 
