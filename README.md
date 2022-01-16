@@ -1,6 +1,6 @@
 # github-deployer
 
-```npm i````
+```npm i```
 
 Add scripts for updating to ```scripts/``` folder.
 
