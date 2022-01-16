@@ -34,7 +34,6 @@ async function Deploy(body) {
         console.log('child process exited with ' +
         `code ${code} and signal ${signal}`);
       }
-        spawn(`pm2 restart ${body.repository.name}`);
     });
   }
 }
