@@ -7,9 +7,6 @@ async function GetLogs() {
 }
 
 async function Deploy(body) {
-  console.log("_____________________________")
-  console.log(JSON.stringify(body))
-  console.log("_____________________________")
   console.log(`Updating ${body.repository.name} to commit: ${body.head_commit.message}`)
   const proj = config.projects.find(x => { return x.name === body.repository.name })
   if (proj) {

@@ -10,6 +10,6 @@ All others are assumed to be in ```scripts/`` folder.
  
 Rename env.example to .env and modify settings to your needs.
 
-
+Github webhook ```Content type: application/json```
 Run to start:
 ```node src/app.js```
