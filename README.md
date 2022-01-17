@@ -2,9 +2,9 @@
 
 ```npm i```
 
-Add scripts for updating to ```scripts/``` folder.
+Add shell scripts to ```scripts/``` folder.
 
-Rename config.example.js to config.js.
+Rename ```config.example.js``` to ```config.js```.
 Add projects names and scripts. Scripts strings starting with . or / are not modified. 
 All others are assumed to be in ```scripts/`` folder.
  
