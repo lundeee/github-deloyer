@@ -5,8 +5,11 @@
 Add shell scripts to ```scripts/``` folder.
 
 Rename ```config.example.js``` to ```config.js```.
-Add projects names and scripts. Scripts strings starting with . or / are not modified. 
+Add projects names and scripts. 
+
+Scripts strings starting with . or / are not modified. 
 All others are assumed to be in ```scripts/`` folder.
+Change script permissions to ```chmod +x ....```
  
 Rename env.example to .env and modify settings to your needs.
 
