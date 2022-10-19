@@ -16,6 +16,7 @@ async function Deploy(body) {
       if (projects.branch) {
         branch = proj.branch
       }
+      let script = proj.script
       if (!script.startsWith("/") && !script.startsWith(".")) script = "./scripts/" + script
       if (body.repository.ref.includes(branch)) {
         if (fs.existsSync(script)) {
