@@ -19,7 +19,7 @@ async function Deploy(body) {
       let script = proj.script
       if (!script.startsWith("/") && !script.startsWith(".")) script = "./scripts/" + script
       console.log(script)
-      if (body.repository.ref.includes(branch)) {
+      if (body.ref.includes(branch)) {
         if (fs.existsSync(script)) {
           const child = spawn(script);
           child.on('exit', function (code, signal) {
